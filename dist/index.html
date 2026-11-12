@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#11151c">
+  <title>Recomp Atlas — Klasikler yeniden doğuyor.</title>
+  <meta name="description" content="Recomp, decomp ve yerel oyun portları için keşif kataloğu. Binlerce projeyi ara, platforma göre filtrele, kaynak kodlarına ve sürümlerine ulaş.">
+  <meta property="og:title" content="Recomp Atlas — Klasikler yeniden doğuyor.">
+  <meta property="og:description" content="Recomp, decomp ve yerel port projeleri. Bir sonraki oyununu keşfet.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Recomp Atlas ana sayfa"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M11 6H5v20h6M21 6h6v20h-6M19 10l-6 12"/></svg></span><span>recomp<span class="brand-atlas">atlas</span><span class="brand-dot">.</span></span></a>
+    <nav class="top-nav" aria-label="Ana menü"><a href="#" class="active" data-nav="discover"><span data-icon="compass"></span>Keşfet</a><a href="#library" data-nav="library"><span data-icon="bookmark"></span>Kütüphanem<span id="library-count" class="tiny-count" hidden>0</span></a></nav>
+    <div class="top-actions"><button class="text-btn sources-button" data-action="sources"><span data-icon="github"></span><span>Kaynaklar</span></button><span class="header-divider"></span><button class="icon-btn theme-toggle" aria-label="Açık temaya geç" data-action="theme"><span data-icon="sun"></span></button><button class="primary-btn random-button" data-action="random"><span data-icon="shuffle"></span><span>Rastgele keşfet</span></button><button class="icon-btn mobile-filter" aria-label="Filtreleri aç" data-action="filters"><span data-icon="sliders"></span></button></div>
+  </header>
+  <div class="app-layout">
+    <aside id="sidebar" class="sidebar" aria-label="Proje filtreleri">
+      <div class="sidebar-top"><span class="eyebrow">KEŞİF ALANI</span><button class="icon-btn close-filters" data-action="filters" aria-label="Filtreleri kapat"><span data-icon="x"></span></button></div>
+      <nav class="side-nav" aria-label="Proje türleri" id="type-nav"></nav>
+      <div class="filter-heading"><span>Filtreler</span><button class="reset-text" data-action="reset">Temizle</button></div>
+      <section class="filter-section"><h2>Orijinal platform <span data-icon="chevron-up"></span></h2><div id="platform-filters"></div><button id="more-platforms" class="more-btn" data-action="more-platforms">Diğer platformlar <span data-icon="chevron-down"></span></button></section>
+      <section class="filter-section"><h2>Yayın durumu <span data-icon="chevron-up"></span></h2><div id="status-filters"></div></section>
+      <button class="guide-card" data-action="guide"><span class="guide-icon" data-icon="book"></span><strong>Recomp mi, decomp mu?</strong><span>Aralarındaki farkı keşfet.<span data-icon="arrow-up-right"></span></span></button>
+      <div class="sidebar-footer"><span class="live-dot"></span><span>Topluluk tarafından mümkün.</span><button data-action="sources">Veri kaynakları <span data-icon="arrow-up-right"></span></button></div>
+    </aside>
+    <button class="sidebar-backdrop" aria-label="Filtreleri kapat" data-action="filters" hidden></button>
+    <main id="main" class="main-content" tabindex="-1">
+      <div id="discover-page">
+        <section class="intro" aria-labelledby="page-title">
+          <div class="intro-copy"><div class="intro-kicker"><span class="spark" data-icon="sparkles"></span> ESKİ OYUNLAR, YENİ OLASILIKLAR</div><h1 id="page-title">Klasikler yeniden <span>doğuyor.</span></h1><p>Recomp, decomp ve yerel port projelerini keşfet.<br class="desktop-break"> Bir sonraki maceran burada başlıyor.</p></div>
+          <div class="catalog-stat"><div class="stat-symbol" data-icon="layers"></div><strong id="total-stat">…</strong><span>proje ve saymaya devam</span><span class="snapshot-date" id="snapshot-date"></span></div>
+        </section>
+        <section id="featured-section" class="featured-section" aria-labelledby="featured-title"><div class="section-title"><h2 id="featured-title"><span data-icon="flame"></span> Keşfetmeye değer</h2><span class="editor-note">KLASİKLERE YENİ BİR BAKIŞ</span></div><div id="featured-grid" class="featured-grid"></div></section>
+        <section class="catalog-section" aria-labelledby="catalog-title">
+          <div class="catalog-heading"><h2 id="catalog-title">Tüm projeler <span id="result-count" class="count-pill">…</span></h2><div class="catalog-tools"><button class="text-btn mobile-filter" data-action="filters"><span data-icon="sliders"></span>Filtreler</button><div class="view-switch" role="group" aria-label="Görünüm"><button class="active" aria-label="Liste görünümü" data-action="view" data-view="list" aria-pressed="true"><span data-icon="list"></span></button><button aria-label="Kart görünümü" data-action="view" data-view="grid" aria-pressed="false"><span data-icon="grid"></span></button></div></div></div>
+          <div class="search-toolbar"><label class="search-box"><span data-icon="search"></span><input id="search" type="search" autocomplete="off" placeholder="Oyun, proje veya geliştirici ara…" aria-label="Projelerde ara"><kbd>/</kbd></label><label class="sort-box"><span>Sırala:</span><select id="sort" aria-label="Projeleri sırala"><option value="recommended">Önerilenler</option><option value="stars">GitHub yıldızları</option><option value="updated">Son güncellenen</option><option value="name">İsim (A–Z)</option><option value="release">Yeni sürümler</option></select><span data-icon="chevron-down"></span></label></div>
+          <div class="quick-tabs" id="quick-tabs" aria-label="Hızlı tür filtreleri"></div>
+          <div id="active-filters" class="active-filters"></div>
+          <div id="results-status" class="results-status" aria-live="polite"></div>
+          <div id="project-list" class="project-list"><div class="loading-state"><span class="loader"></span>Katalog hazırlanıyor…</div></div>
+          <div id="pagination" class="pagination"></div>
+        </section>
+        <footer class="main-footer"><span class="mini-brand">recomp<span>atlas.</span></span><p>Klasikleri yaşatan toplulukları keşfet.</p><button data-action="sources">Katalog hakkında <span data-icon="arrow-up-right"></span></button></footer>
+      </div>
+      <div id="detail-page" hidden></div>
+    </main>
+  </div>
+  <dialog id="info-dialog" class="info-dialog"><div class="dialog-top"><span class="dialog-logo" data-icon="layers"></span><button class="icon-btn" data-action="close-dialog" aria-label="Pencereyi kapat"><span data-icon="x"></span></button></div><div id="dialog-content"></div></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
